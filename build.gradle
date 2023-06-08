@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    /*1. Servlet API*/
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+    /*2. MySQL Connector*/
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+
+    /*3. Spring Web MVC*/
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.27'
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.1.1.RELEASE'
+
+    /*4. ORM Hibernate Core-Entity Manager*/
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.33.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.29.Final'
+
+    /*5. ORM Spring JPA*/
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.15'
+
+    /*6. Validation*/
+    // https://mvnrepository.com/artifact/javax.validation/validation-api
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+    implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.2.5.Final'
+
+    /*7. RestFull Jackson*/
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.7.1'
+
+    /*8. Spring Security Web*/
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+    implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.4.11'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.4.11'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.4.11'
+    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.1.1.RELEASE'
+
+    /*9. Json Web Token*/
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+    /*10. Upload File*/
+    // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+    implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.5'
+
+}
+
+test {
+    useJUnitPlatform()
+}
