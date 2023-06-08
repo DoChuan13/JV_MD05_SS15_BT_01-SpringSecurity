@@ -10,16 +10,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("dochuan").password("{noop}123").roles("USER")
-                .and().withUser("admin").password("{noop}456").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("dochuan").password("{noop}123").roles("USER").and().withUser("admin")
+            .password("{noop}456").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .authorizeRequests().antMatchers("/auth/user").hasRole("USER")
-                .and().authorizeRequests().antMatchers("/auth/admin").hasRole("ADMIN")
-                .and().formLogin()
-                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+        System.out.println();
+        httpSecurity.authorizeRequests().antMatchers("/user/**").hasRole("USER").and().authorizeRequests().antMatchers(
+                "/admin/**").hasRole("ADMIN").and().formLogin().and().logout().logoutRequestMatcher(
+                new AntPathRequestMatcher("/logout"));
     }
 }

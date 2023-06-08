@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = {"/auth"})
+@RequestMapping(value = {"/"})
 public class UserController {
     @GetMapping("/user")
     public String profileUser() {
